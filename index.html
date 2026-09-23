@@ -2,93 +2,72 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ecosistema de Atracción de Talento - Portal Candidato</title>
+    <title>Portal del Candidato - Liverpool</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root { --liver-primary: #8b005d; --liver-secondary: #c2185b; --liver-bg: #f8f9fa; }
-        body { background-color: var(--liver-bg); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .top-navbar { background: linear-gradient(135deg, #4a0e37 0%, #8b005d 100%); color: white; padding: 12px 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .sim-nav { background: #212529; color: #fff; font-size: 0.85rem; padding: 6px; text-align: center; }
-        .sim-nav a { color: #ff4081; font-weight: bold; margin: 0 10px; text-decoration: none; }
-        .sim-nav a:hover { text-decoration: underline; }
-        .metric-card { background: white; border-radius: 12px; padding: 18px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-left: 4px solid var(--liver-primary); }
-        .badge-custom { background-color: #e91e63; color: white; font-weight: 500; }
-    </style>
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- Barra de Navegación del Simulador -->
+<!-- Barra de Simulador para el Hackathon -->
 <div class="sim-nav">
-    <span><i class="fas fa-random"></i> MODO SIMULADOR DE VISTAS (Hackathon):</span>
-    <a href="index.html" class="active">1. Candidato / Index</a> |
-    <a href="at.html">2. AT (Atracción)</a> |
-    <a href="hm.html">3. HM (Hiring Manager)</a>
+    <span><i class="fas fa-random"></i> MODO DEMO:</span>
+    <a href="index.html" class="active">1. Candidato (Index)</a>
+    <a href="at.html">2. AT (Atracción)</a>
+    <a href="hm.html">3. Hiring Manager</a>
 </div>
 
-<!-- Header Principal Estilo Aira -->
-<div class="top-navbar d-flex justify-content-between align-items-center flex-wrap">
+<!-- Header -->
+<div class="top-navbar d-flex justify-content-between align-items-center">
     <div class="d-flex align-items-center gap-3">
         <span class="badge bg-light text-dark fw-bold px-3 py-2 rounded-pill"><i class="fas fa-shopping-bag text-danger"></i> LIVERPOOL</span>
         <div>
-            <small class="text-uppercase opacity-75" style="font-size: 0.7rem;">LIVERHACK 2026 | Reclutamiento Integral</small>
+            <small class="text-uppercase opacity-75" style="font-size: 0.7rem;">LiverHack 2026 | Reclutamiento Integral</small>
             <h5 class="mb-0 fw-bold">Ecosistema de Atracción de Talento</h5>
         </div>
     </div>
-    <div class="d-flex align-items-center gap-3 mt-2 mt-md-0">
-        <span class="badge bg-dark border border-light">VISTA: Candidato / Postulante</span>
-    </div>
+    <span class="badge bg-dark border">Rol: Candidato</span>
 </div>
 
 <div class="container my-4">
-    <!-- Panel de Indicadores Superiores -->
     <div class="row g-3 mb-4">
         <div class="col-md-4">
             <div class="metric-card">
-                <small class="text-muted fw-bold">ESTATUS DE POSTULACIÓN</small>
+                <small class="text-muted fw-bold">ESTATUS DE VACANTE</small>
                 <h4 class="text-primary mt-1 mb-0">En Proceso / Fase 3</h4>
-                <span class="badge bg-warning text-dark mt-2">Pendiente de Entrevista Final</span>
+                <span class="badge bg-warning text-dark mt-2">Esperando Entrevista Final</span>
             </div>
         </div>
         <div class="col-md-4">
             <div class="metric-card">
                 <small class="text-muted fw-bold">COMPATIBILIDAD IA (ASSESSFIRST)</small>
                 <h3 class="text-success mt-1 mb-0"><i class="fas fa-brain"></i> 92%</h3>
-                <small class="text-muted">Alto potencial de liderazgo[cite: 2]</small>
+                <small class="text-muted">Perfil altamente competitivo[cite: 2]</small>
             </div>
         </div>
         <div class="col-md-4">
             <div class="metric-card">
-                <small class="text-muted fw-bold">TURNO DE ACCIÓN ACTUAL</small>
-                <h5 class="text-dark mt-1 mb-0"><i class="fas fa-user-tie text-danger"></i> Hiring Manager (HM)</h5>
-                <small class="text-muted">Revisión de CV y portafolio</small>
+                <small class="text-muted fw-bold">RESPONSABLE ACTUAL</small>
+                <h5 class="text-dark mt-1 mb-0"><i class="fas fa-user-tie text-danger"></i> Atracción de Talento (AT)</h5>
+                <small class="text-muted">Validación de requisitos</small>
             </div>
         </div>
     </div>
 
-    <!-- Contenido Central del Candidato -->
-    <div class="card border-0 shadow-sm p-4 rounded-4">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h3 class="fw-bold text-dark">Detalle del Postulante</h3>
-            <span class="badge bg-success px-3 py-2">Activo en Bolsa de Talento</span>
-        </div>
+    <div class="content-card">
+        <h3 class="fw-bold text-dark mb-3">Expediente del Postulante</h3>
         <hr>
         <div class="row">
             <div class="col-md-6">
                 <p><strong>Nombre:</strong> Ana López[cite: 2]</p>
                 <p><strong>Puesto Actual:</strong> Gerente de Proyectos E-commerce[cite: 2]</p>
-                <p><strong>Empresa Actual:</strong> Retail Digital S.A.[cite: 2]</p>
-                <p><strong>Escolaridad:</strong> Licenciatura en Marketing Digital[cite: 2]</p>
+                <p><strong>Empresa:</strong> Retail Digital S.A.[cite: 2]</p>
             </div>
             <div class="col-md-6">
-                <p><strong>Compensación Actual:</strong> $1,000,000 MXN[cite: 2]</p>
-                <p><strong>Compensación Deseada:</strong> $1,200,000 MXN[cite: 2]</p>
-                <p><strong>Idiomas:</strong> Inglés (C1), Español (Nativo)[cite: 2]</p>
-                <p><strong>Otros Estudios:</strong> Certificación PMP, Diplomado en UX/UI[cite: 2]</p>
+                <p><strong>Escolaridad:</strong> Licenciatura en Marketing Digital[cite: 2]</p>
+                <p><strong>Pretensión Salarial:</strong> $1,200,000 MXN[cite: 2]</p>
+                <p><strong>Idiomas:</strong> Inglés (C1)[cite: 2]</p>
             </div>
-        </div>
-        <div class="alert alert-secondary mt-3 mb-0">
-            <strong>Resumen Profesional:</strong> Gerente de Proyectos con 8 años de experiencia liderando la implementación de plataformas de e-commerce y optimizando la experiencia de usuario[cite: 2].
         </div>
     </div>
 </div>

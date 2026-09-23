@@ -1,0 +1,69 @@
+:root {
+    --liver-primary: #8b005d;
+    --liver-secondary: #c2185b;
+    --liver-dark: #4a0e37;
+    --liver-bg: #f8f9fa;
+}
+
+body {
+    background-color: var(--liver-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Barra superior de simulación */
+.sim-nav {
+    background: #1a1d20;
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 8px;
+    text-align: center;
+    border-bottom: 2px solid #333;
+}
+.sim-nav a {
+    color: #ff4081;
+    font-weight: bold;
+    margin: 0 12px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.sim-nav a:hover, .sim-nav a.active {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Header principal */
+.top-navbar {
+    background: linear-gradient(135deg, var(--liver-dark) 0%, var(--liver-primary) 100%);
+    color: white;
+    padding: 15px 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Tarjetas de métricas estilo Aira */
+.metric-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.04);
+    border-left: 5px solid var(--liver-primary);
+    transition: transform 0.2s ease;
+}
+.metric-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Paneles y contenedores */
+.content-card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: none;
+    padding: 25px;
+}
+
+.badge-sla {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+    border-radius: 20px;
+}
