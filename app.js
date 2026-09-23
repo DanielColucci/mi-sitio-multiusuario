@@ -68,42 +68,46 @@ function shell() {
 }
 
 /* ---------- Vistas ---------- */
+const sw = (k, l, on) => `<button class="sw ${on ? 'on' : ''}" role="switch" aria-checked="${on}" onclick="toggleNotif('${k}')"><span></span>${l}</button>`;
+function toggleNotif(k) {
+  const a = S[0]; a.notif = a.notif || { mail: true, wa: false };
+  a.notif[k] = !a.notif[k]; save(); render();
+  toast(a.notif[k] ? `Listo, te avisaremos por ${k === 'mail' ? 'correo' : 'WhatsApp'}.` : 'Aviso desactivado.', a.notif[k] ? 'ok' : 'no');
+}
 function viewCandidato() {
-  const a = S[0];
-  const info = {
-    at: ['En proceso', 'Validación de requisitos', 'Atracción de Talento (AT)', 'Esperando entrevista final'],
-    hm: ['En evaluación', 'Revisión técnica', 'Hiring Manager (HM)', 'Tu perfil está con el líder de la vacante'],
-    finalista: ['Finalista', 'Solicitud de carta oferta', 'Hiring Manager (HM)', '¡Avanzaste a la última etapa!'],
-    descartado: ['Proceso concluido', 'Sin siguientes pasos', 'Atracción de Talento (AT)', 'Gracias por participar']
+  const a = S[0], n = a.notif || { mail: true, wa: false };
+  const m = {
+    at: ['En revisión', 'Estamos validando tu perfil con el equipo de Atracción de Talento.'],
+    hm: ['Con el líder de la vacante', 'El Hiring Manager ya está revisando tu perfil.'],
+    finalista: ['Eres finalista', 'Estamos preparando tu carta oferta.'],
+    descartado: ['Proceso concluido', 'Gracias por tu tiempo. Guardaremos tu perfil para futuras vacantes.']
   }[a.st];
-  return head('Portal del candidato', 'Sigue en tiempo real el avance de tu postulación en Liverpool.') + `
-  <section class="feature"><div class="feature-in"><span class="bignum">0${a.f}</span>
-    <div class="items">
-      <div class="item"><div class="ico"><i class="fas fa-flag"></i></div><div><small>Estatus de la vacante</small><strong>${info[0]} · Fase ${a.f}</strong></div></div>
-      <div class="item"><div class="ico"><i class="fas fa-user-tie"></i></div><div><small>Responsable actual</small><strong>${info[2]}</strong></div></div>
-      <div class="item"><div class="ico"><i class="fas fa-list-check"></i></div><div><small>Siguiente paso</small><strong>${info[1]}</strong></div></div>
-    </div>
-    <div class="hl">
-      <div class="numrow"><div class="numbox">0${a.f}</div><hr></div>
-      <span class="eyebrow">Tu proceso de selección</span>
-      <h2>${FASES[a.f - 1]}</h2>${tag(info[3], a.st === 'descartado' ? 'bad' : a.st === 'finalista' ? 'ok' : 'warn')}
-      <div class="line"></div>
-    </div></div></section>
+  const pct = Math.round((a.f - 1) / (FASES.length - 1) * 100);
+  return `<div class="portal">
+  <p class="hi">Hola, ${a.n.split(' ')[0]}</p>
+  <h1>${a.st === 'descartado' ? 'Gracias por participar' : 'Tu postulación va avanzando'}</h1>
+  <p class="sub">Líder Técnico E-Commerce · Liverpool</p>
 
-  <div class="card mt"><h3>Avance del proceso</h3>
-    <div class="steps">${FASES.map((f, i) =>
-      `<div class="step ${i + 1 < a.f ? 'done' : i + 1 === a.f ? 'now' : ''}"><div class="dot">${i + 1 < a.f ? '<i class="fas fa-check"></i>' : i + 1}</div>${f}</div>`).join('')}</div></div>
+  <section class="glass">
+    <div class="st"><span class="live ${a.st}"></span>${m[0]}</div>
+    <h2>${FASES[a.f - 1]}</h2><p>${m[1]}</p>
+    <div class="prog"><div class="rail"><i style="width:${pct}%"></i></div>
+      <ol>${FASES.map((f, i) => `<li class="${i + 1 < a.f ? 'd' : i + 1 === a.f ? 'n' : ''}">${f}</li>`).join('')}</ol></div>
+    <small class="etapa">Etapa ${a.f} de ${FASES.length} · ${pct}% completado</small>
+  </section>
 
-  <div class="grid g2 mt">
-    <div class="card"><h3>Expediente del postulante</h3>
-      <div class="data">
-        <div><small>Nombre</small><span>${a.n}</span></div><div><small>Escolaridad</small><span>Licenciatura en Marketing Digital</span></div>
-        <div><small>Puesto actual</small><span>${a.p}</span></div><div><small>Pretensión salarial</small><span>$1,200,000 MXN</span></div>
-        <div><small>Empresa</small><span>${a.e}</span></div><div><small>Idiomas</small><span>Inglés (C1)</span></div>
-      </div></div>
-    <div class="card" style="text-align:center"><small class="eyebrow">Compatibilidad IA · AssessFirst</small>
-      <div class="ring" style="--p:${a.c}"><span>${a.c}%</span></div><small>Perfil altamente competitivo</small></div>
-  </div>`;
+  ${a.st === 'descartado' ? '' : `<section class="glass notify">
+    <div class="bell"><i class="fas fa-bell"></i></div>
+    <div><h3>Te avisaremos cuando esté listo</h3>
+    <p>Recibirás un mensaje en cuanto tu proceso pase a la siguiente etapa. No necesitas revisar el portal.</p>
+    <div class="sw-row">${sw('mail', 'Correo', n.mail)}${sw('wa', 'WhatsApp', n.wa)}</div></div></section>`}
+
+  <details class="glass exp"><summary>Ver mi expediente <i class="fas fa-chevron-down"></i></summary>
+    <div class="data">
+      <div><small>Puesto actual</small><span>${a.p}</span></div><div><small>Empresa</small><span>${a.e}</span></div>
+      <div><small>Escolaridad</small><span>Lic. en Marketing Digital</span></div><div><small>Idiomas</small><span>Inglés (C1)</span></div>
+      <div><small>Pretensión salarial</small><span>$1,200,000 MXN</span></div><div><small>Compatibilidad</small><span>${a.c}% · perfil competitivo</span></div>
+    </div></details></div>`;
 }
 
 function viewAT() {
@@ -148,6 +152,7 @@ function viewHM() {
 }
 
 function render() {
+  document.body.classList.add('p-' + page);
   shell();
   $('#app').innerHTML = { index: viewCandidato, at: viewAT, hm: viewHM }[page]();
 }
