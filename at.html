@@ -1,101 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Panel AT - Liverpool</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel AT - Liverpool</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="styles.css" rel="stylesheet">
 </head>
-<body>
-
-<div class="sim-nav">
-    <span><i class="fas fa-random"></i> MODO DEMO:</span>
-    <a href="index.html">1. Candidato (Index)</a>
-    <a href="at.html" class="active">2. AT (Atracción)</a>
-    <a href="hm.html">3. Hiring Manager</a>
-</div>
-
-<div class="top-navbar d-flex justify-content-between align-items-center">
-    <div class="d-flex align-items-center gap-3">
-        <span class="badge bg-light text-dark fw-bold px-3 py-2 rounded-pill"><i class="fas fa-shopping-bag text-danger"></i> LIVERPOOL</span>
-        <div>
-            <small class="text-uppercase opacity-75" style="font-size: 0.7rem;">LiverHack 2026 | Reclutamiento Integral</small>
-            <h5 class="mb-0 fw-bold">Ecosistema de Atracción de Talento</h5>
-        </div>
-    </div>
-    <span class="badge bg-warning text-dark border">Rol: Atracción de Talento (AT)</span>
-</div>
-
-<div class="container my-4">
-    <div class="row g-3 mb-4">
-        <div class="col-md-4">
-            <div class="metric-card">
-                <small class="text-muted fw-bold">POOL DE CANDIDATOS</small>
-                <h4 class="text-dark mt-1 mb-0">10 Calificados</h4>
-                <small class="text-success"><i class="fas fa-check-circle"></i> Sincronizado con AssessFirst</small>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="metric-card">
-                <small class="text-muted fw-bold">SLA DEL PROCESO</small>
-                <h4 class="text-primary mt-1 mb-0">En Tiempo / OK</h4>
-                <small class="text-muted">Fase 3 activa</small>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="metric-card">
-                <small class="text-muted fw-bold">ACCIONES PENDIENTES</small>
-                <h4 class="text-danger mt-1 mb-0">2 Envíos a HM</h4>
-                <small class="text-muted">Requiere validación</small>
-            </div>
-        </div>
-    </div>
-
-    <div class="content-card">
-        <h4 class="fw-bold text-dark mb-3"><i class="fas fa-users-cog text-primary"></i> Gestión de Candidatos y Filtros</h4>
-        <p class="text-muted small">Visualiza el avance de los perfiles y transfiere los candidatos aprobados al Hiring Manager[cite: 1].</p>
-
-        <div class="table-responsive">
-            <table class="table table-hover align-middle mt-3">
-                <thead class="table-light">
-                <tr>
-                    <th>Candidato</th>
-                    <th>Puesto Actual</th>
-                    <th>Compatibilidad (IA)</th>
-                    <th>Fase Actual</th>
-                    <th>Acción AT</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="fw-bold">Ana López</td>
-                    <td>Gerente de Proyectos E-commerce[cite: 2]</td>
-                    <td><span class="badge bg-success">92%</span></td>
-                    <td><span class="badge bg-info text-dark">Fase 3: Búsqueda</span></td>
-                    <td>
-                        <button class="btn btn-sm btn-primary" onclick="enviarAHm('Ana López')">
-                            <i class="fas fa-paper-plane"></i> Enviar a HM
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="fw-bold">Carlos Mendoza</td>
-                    <td>Desarrollador Backend Senior[cite: 2]</td>
-                    <td><span class="badge bg-success">88%</span></td>
-                    <td><span class="badge bg-info text-dark">Fase 3: Búsqueda</span></td>
-                    <td>
-                        <button class="btn btn-sm btn-primary" onclick="enviarAHm('Carlos Mendoza')">
-                            <i class="fas fa-paper-plane"></i> Enviar a HM
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
+<body data-page="at">
+<header id="nav"></header>
+<main id="app" class="wrap"></main>
+<div id="toasts" aria-live="polite"></div>
 <script src="app.js"></script>
 </body>
 </html>
