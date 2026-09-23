@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel AT - Atracción de Talento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .nav-simulator { background: #d63384; padding: 10px; color: white; text-align: center; }
+        .nav-simulator a { color: white; font-weight: bold; margin: 0 15px; text-decoration: underline; }
+    </style>
+</head>
+<body>
+<div class="nav-simulator">
+    <span>🔄 Simulador de Vistas:</span>
+    <a href="index.html">1. Candidato (Index)</a> |
+    <a href="at.html">2. AT (Reclutamiento)</a> |
+    <a href="hm.html">3. HM (Hiring Manager)</a>
+</div>
+
+<div class="container my-5">
+    <h2 class="fw-bold text-dark">Panel de Atracción de Talento (AT)</h2>
+    <p class="text-muted">Gestión de fases previas y filtrado de candidatos antes de pasarlos al Hiring Manager.</p>
+
+    <div class="card shadow-sm p-4 mt-4">
+        <h4>Listado de Candidatos en Evaluación</h4>
+        <table class="table table-striped mt-3">
+            <thead>
+            <tr>
+                <th>Candidato</th>
+                <th>Puesto Actual</th>
+                <th>Compatibilidad IA</th>
+                <th>Fase Actual</th>
+                <th>Acción AT</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Ana López[cite: 2]</td>
+                <td>Gerente de Proyectos E-commerce[cite: 2]</td>
+                <td><span class="badge bg-success">92%</span></td>
+                <td>Fase 3: Búsqueda / Atracción</td>
+                <td><button class="btn btn-sm btn-primary" onclick="alert('Candidato enviado al Hiring Manager (HM)')">Enviar a HM</button></td>
+            </tr>
+            <tr>
+                <td>Carlos Mendoza[cite: 2]</td>
+                <td>Desarrollador Backend Senior[cite: 2]</td>
+                <td><span class="badge bg-success">88%</span></td>
+                <td>Fase 3: Búsqueda / Atracción</td>
+                <td><button class="btn btn-sm btn-primary" onclick="alert('Candidato enviado al Hiring Manager (HM)')">Enviar a HM</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
